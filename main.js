@@ -182,32 +182,86 @@ if (chatForm) {
     addMessage(message, 'user')
     chatInput.value = ''
     
+    // Disable input while waiting
+    chatInput.disabled = true
+    const submitBtn = chatForm.querySelector('button[type="submit"]')
+    const originalBtnText = submitBtn.innerHTML
+    submitBtn.innerHTML = '⏳ Menunggu CS...'
+    submitBtn.disabled = true
+    
+    // Show typing indicator
+    const typingDiv = addTypingIndicator()
+    
     try {
+      const controller = new AbortController()
+      const timeoutId = setTimeout(() => controller.abort(), 60000) // 60s timeout
+      
       const response = await fetch('http://localhost:3000/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message, customerName: 'Website Visitor' })
+        body: JSON.stringify({ message, customerName: 'Website Visitor' }),
+        signal: controller.signal
       })
+      
+      clearTimeout(timeoutId)
+      
+      // Remove typing indicator
+      if (typingDiv) typingDiv.remove()
       
       if (response.ok) {
         const data = await response.json()
-        // Add AI response after delay
-        setTimeout(() => {
+        // Response is in data.response.message
+        if (data.response && data.response.message) {
           addMessage(data.response.message, 'bot')
-        }, 1000)
+        } else if (data.response) {
+          addMessage(data.response, 'bot')
+        } else {
+          addMessage('Maaf, terjadi kesalahan dalam memproses pesan.', 'bot')
+        }
+      } else {
+        throw new Error('Server error')
       }
     } catch (error) {
       console.error('Chat error:', error)
-      addMessage('Maaf, terjadi kesalahan. Silakan coba lagi.', 'bot')
+      // Remove typing indicator
+      if (typingDiv) typingDiv.remove()
+      if (error.name === 'AbortError') {
+        addMessage('Waktu tunggu habis. Silakan coba lagi.', 'bot')
+      } else {
+        addMessage('Maaf, terjadi kesalahan. Silakan coba lagi atau hubungi kami via WhatsApp.', 'bot')
+      }
+    } finally {
+      chatInput.disabled = false
+      submitBtn.innerHTML = originalBtnText
+      submitBtn.disabled = false
+      chatInput.focus()
     }
   })
+}
+
+// Add typing indicator (three animated dots)
+function addTypingIndicator() {
+  const typingDiv = document.createElement('div')
+  typingDiv.className = 'chat-message bot typing-indicator-container'
+  typingDiv.innerHTML = `
+    <div class="typing-indicator">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  `
+  chatMessages.appendChild(typingDiv)
+  chatMessages.scrollTop = chatMessages.scrollHeight
+  return typingDiv
 }
 
 // Add message to chat window
 function addMessage(text, sender) {
   const msgDiv = document.createElement('div')
   msgDiv.className = `chat-message ${sender}`
-  msgDiv.innerHTML = `<p>${text}</p>`
+  // Convert newlines to <br> and wrap in <p>
+  const formattedText = text.replace(/\n/g, '<br>')
+  msgDiv.innerHTML = `<p>${formattedText}</p>`
   chatMessages.appendChild(msgDiv)
   chatMessages.scrollTop = chatMessages.scrollHeight
 }
