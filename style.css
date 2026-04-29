@@ -1111,6 +1111,7 @@ body {
   
   /* Chat Widget */
   .chat-widget {
+    position: fixed;
     bottom: 15px;
     right: 15px;
   }
@@ -1178,7 +1179,7 @@ body {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  z-index: 9999;
+  z-index: 99999;
 }
 
 .chat-toggle {
@@ -1205,7 +1206,7 @@ body {
 .chat-window {
   display: none;
   position: fixed;
-  bottom: 70px;
+  bottom: 80px;
   right: 30px;
   width: 350px;
   height: 450px;
@@ -1214,6 +1215,7 @@ body {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   flex-direction: column;
+  z-index: 99999;
 }
 
 .chat-window.active {
