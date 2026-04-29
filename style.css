@@ -1113,12 +1113,6 @@ body {
     padding: 10px 15px;
     font-size: 0.85rem;
   }
-  
-  .chat-window {
-    width: 300px;
-    height: 400px;
-    right: 0;
-  }
 }
 
 /* Small Mobile (360px and below) */
@@ -1184,7 +1178,7 @@ body {
   }
 }
 
-/* ===== Chat Widget ===== */
+/* CHAT WIDGET CSS - VERIFY LOADED */
 .chat-widget {
   position: fixed;
   bottom: 30px;
@@ -1215,8 +1209,8 @@ body {
 }
 
 .chat-window {
-  display: none;
-  position: fixed;
+  display: none !important;
+  position: fixed !important;
   bottom: 75px;
   right: 30px;
   width: 320px;
@@ -1226,11 +1220,11 @@ body {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   flex-direction: column;
-  z-index: 99999;
+  z-index: 99999 !important;
 }
 
 .chat-window.active {
-  display: flex;
+  display: flex !important;
 }
 
 .chat-header {

@@ -164,17 +164,24 @@ const chatForm = document.getElementById('chatForm')
 const chatInput = document.getElementById('chatInput')
 const chatMessages = document.getElementById('chatMessages')
 
+// Hide chat window initially
+chatWindow.style.display = 'none'
+
 // Toggle chat window
 if (chatToggle) {
   chatToggle.addEventListener('click', () => {
-    chatWindow.classList.toggle('active')
+    if (chatWindow.style.display === 'flex') {
+      chatWindow.style.display = 'none'
+    } else {
+      chatWindow.style.display = 'flex'
+    }
   })
 }
 
 // Close chat window
 if (chatClose) {
   chatClose.addEventListener('click', () => {
-    chatWindow.classList.remove('active')
+    chatWindow.style.display = 'none'
   })
 }
 
