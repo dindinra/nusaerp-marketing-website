@@ -63,17 +63,14 @@ body {
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 1.5rem;
-  font-weight: bold;
 }
 
-.logo-icon {
-  font-size: 2rem;
-}
-
-.logo-text {
-  color: var(--dark);
+.logo-img {
+  height: auto;
+  width: 250px;
+  max-width: 100%;
+  object-fit: contain;
+  transition: width 0.3s ease;
 }
 
 .highlight {
@@ -251,6 +248,12 @@ body {
 
 .trust-icon {
   font-size: 1.2rem;
+  color: #10b981;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
 }
 
 /* Hero Card (Mockup) */
@@ -380,6 +383,11 @@ body {
 .feature-icon {
   font-size: 3rem;
   margin-bottom: 15px;
+  color: var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
 }
 
 .feature-card h3 {
@@ -463,9 +471,28 @@ body {
   color: var(--primary);
 }
 
+.old-price {
+  font-size: 2.5rem !important;
+  color: #94a3b8 !important;
+  text-decoration: line-through;
+}
+
+.highlight-price {
+  font-size: 4.5rem !important;
+  color: #10b981 !important;
+}
+
 .period {
   font-size: 1rem;
   color: var(--gray);
+}
+
+.package-price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 5px;
+  flex-wrap: wrap;
 }
 
 .package-note {
@@ -579,6 +606,11 @@ body {
 .why-icon {
   font-size: 3rem;
   margin-bottom: 15px;
+  color: var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
 }
 
 .why-card h3 {
@@ -898,55 +930,246 @@ body {
   .package-card {
     padding: 30px 20px;
   }
-
-  }
-}
-
 @media (max-width: 480px) {
   .container {
     padding: 0 15px;
   }
 
-  .hero h1 {
-    font-size: 1.6rem;
+  /* Hero Section */
+  .hero {
+    padding: 90px 0 50px;
   }
-
+  
+  .hero h1 {
+    font-size: 1.4rem !important;
+    line-height: 1.4;
+    margin-bottom: 15px;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
   .hero-cta {
     flex-direction: column;
     width: 100%;
+    gap: 10px;
+    margin-bottom: 20px;
   }
-
+  
   .hero-cta .btn-primary,
   .hero-cta .btn-secondary {
     width: 100%;
     text-align: center;
-  }
-
-  .why-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-content {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-wrapper {
-    padding: 20px;
-  }
-
-  .hero-trust {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .chat-widget {
-    bottom: 20px;
-    right: 20px;
-  }
-
-  .chat-toggle {
     padding: 12px 20px;
     font-size: 0.9rem;
+  }
+  
+  .hero-trust {
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.8rem;
+  }
+  
+  /* Sections */
+  .section {
+    padding: 40px 0;
+  }
+  
+  .section-header h2 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+  
+  .section-header p {
+    font-size: 1rem;
+  }
+  
+  /* Features & Why Us */
+  .features-grid,
+  .why-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .feature-card,
+  .why-card {
+    padding: 20px;
+  }
+  
+  .feature-card h3,
+  .why-card h3 {
+    font-size: 1.1rem;
+  }
+  
+  .feature-card p,
+  .why-card p {
+    font-size: 0.9rem;
+  }
+  
+  /* Package */
+  .package-wrapper {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    gap: 20px;
+  }
+  
+  .package-card {
+    padding: 25px 15px;
+  }
+  
+  .package-card h3 {
+    font-size: 1.2rem;
+  }
+  
+  .package-price {
+    padding: 15px 10px;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .old-price {
+    font-size: 1.8rem !important;
+  }
+  
+  .highlight-price {
+    font-size: 2.5rem !important;
+  }
+  
+  .currency {
+    font-size: 1.2rem;
+  }
+  
+  /* Contact */
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 25px;
+  }
+  
+  .contact-info h2 {
+    font-size: 1.5rem;
+  }
+  
+  .contact-info > p {
+    font-size: 0.9rem;
+  }
+  
+  /* Footer */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .footer-links h4 {
+    margin-bottom: 10px;
+    font-size: 1rem;
+  }
+  
+  .footer-links a {
+    font-size: 0.9rem;
+  }
+  
+  /* Navigation */
+  .logo-img {
+    width: 150px;
+  }
+  
+  .nav-links {
+    gap: 15px;
+    padding: 15px;
+  }
+  
+  .nav-links a {
+    font-size: 0.9rem;
+  }
+  
+  /* Steps */
+  .steps {
+    gap: 15px;
+  }
+  
+  .step {
+    padding: 20px 15px;
+  }
+  
+  .step h3 {
+    font-size: 1rem;
+  }
+  
+  .step p {
+    font-size: 0.85rem;
+  }
+  
+  .step-arrow {
+    transform: rotate(90deg);
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  
+  /* Chat Widget */
+  .chat-widget {
+    bottom: 15px;
+    right: 15px;
+  }
+  
+  .chat-toggle {
+    padding: 10px 15px;
+    font-size: 0.85rem;
+  }
+  
+  .chat-window {
+    width: 300px;
+    height: 400px;
+    right: 0;
+  }
+}
+
+/* Small Mobile (360px and below) */
+@media (max-width: 360px) {
+  .hero h1 {
+    font-size: 1.2rem !important;
+  }
+  
+  .highlight-price {
+    font-size: 2rem !important;
+  }
+  
+  .old-price {
+    font-size: 1.5rem !important;
+  }
+  
+  .hero-cta .btn-primary,
+  .hero-cta .btn-secondary {
+    padding: 10px 15px;
+    font-size: 0.85rem;
+  }
+  
+  .package-card {
+    padding: 20px 10px;
+  }
+  
+  .logo-img {
+    width: 120px;
+  }
+  
+  .section-header h2 {
+    font-size: 1.3rem;
+  }
+  
+  .feature-card,
+  .why-card {
+    padding: 15px;
+  }
+  
+  .step {
+    padding: 15px 10px;
+  }
+  
+  .contact-wrapper {
+    padding: 15px;
   }
 }
 
