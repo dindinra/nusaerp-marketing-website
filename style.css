@@ -1109,13 +1109,6 @@ body {
     text-align: center;
   }
   
-  /* Chat Widget */
-  .chat-widget {
-    position: fixed;
-    bottom: 15px;
-    right: 15px;
-  }
-  
   .chat-toggle {
     padding: 10px 15px;
     font-size: 0.85rem;
@@ -1172,6 +1165,23 @@ body {
   .contact-wrapper {
     padding: 15px;
   }
+  
+  /* Chat Widget Responsive */
+  .chat-widget {
+    bottom: 15px;
+    right: 15px;
+  }
+  
+  .chat-window {
+    width: 280px;
+    height: 380px;
+    right: 0;
+  }
+  
+  .chat-toggle {
+    padding: 10px 15px;
+    font-size: 0.85rem;
+  }
 }
 
 /* ===== Chat Widget ===== */
@@ -1189,13 +1199,14 @@ body {
   background: var(--gradient);
   color: white;
   border: none;
-  padding: 15px 25px;
+  padding: 12px 20px;
   border-radius: 30px;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
   box-shadow: 0 5px 20px rgba(99, 102, 241, 0.4);
   transition: all 0.3s;
+  z-index: 99999;
 }
 
 .chat-toggle:hover {
@@ -1206,10 +1217,10 @@ body {
 .chat-window {
   display: none;
   position: fixed;
-  bottom: 80px;
+  bottom: 75px;
   right: 30px;
-  width: 350px;
-  height: 450px;
+  width: 320px;
+  height: 420px;
   background: white;
   border-radius: var(--radius-lg);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
