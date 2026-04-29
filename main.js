@@ -71,7 +71,14 @@ if (contactForm) {
       }
     } catch (error) {
       console.error('Error:', error)
-      alert('Maaf, terjadi kesalahan. Silakan coba lagi atau hubungi kami via WhatsApp.')
+      // Offline fallback - open WhatsApp
+      const whatsappMessage = `Halo NusaERP!%0A%0A*Lead dari Website*%0A${'Nama: ' + data.name}%0A${'Email: ' + data.email}%0A${'Phone: ' + (data.phone || '-')}%0A${'Kebutuhan: ' + (data.message || '-')}`
+      const whatsappURL = `https://wa.me/628****2778?text=${whatsappMessage}`
+      
+      const useWhatsApp = confirm('Maaf, terjadi kesalahan koneksi.%0AAtau hubungi kami via WhatsApp?')
+      if (useWhatsApp) {
+        window.open(whatsappURL, '_blank')
+      }
     } finally {
       btn.innerHTML = originalText
       btn.disabled = false
@@ -225,11 +232,18 @@ if (chatForm) {
       console.error('Chat error:', error)
       // Remove typing indicator
       if (typingDiv) typingDiv.remove()
-      if (error.name === 'AbortError') {
-        addMessage('Waktu tunggu habis. Silakan coba lagi.', 'bot')
-      } else {
-        addMessage('Maaf, terjadi kesalahan. Silakan coba lagi atau hubungi kami via WhatsApp.', 'bot')
-      }
+      
+      // Offline auto-response
+      const offlineResponses = [
+        'Terima kasih atas pesannya! Saat ini CS sedang offline. Silakan hubungi kami via WhatsApp di +628****2778 untuk respon cepat.',
+        'Halo! Mohon maaf, saat ini CS tidak aktif. Untuk demo gratis, silakan isi form kontak atau hubungi WhatsApp kami.',
+        'Pesan Anda telah kami terima. Tim NusaERP akan segera menghubungi Anda. Atau hubungi langsung: +628****2778.'
+      ]
+      const randomResponse = offlineResponses[Math.floor(Math.random() * offlineResponses.length)]
+      
+      setTimeout(() => {
+        addMessage(randomResponse, 'bot')
+      }, 1000)
     } finally {
       chatInput.disabled = false
       submitBtn.innerHTML = originalBtnText
