@@ -1204,9 +1204,9 @@ body {
 
 .chat-window {
   display: none;
-  position: absolute;
+  position: fixed;
   bottom: 70px;
-  right: 0;
+  right: 30px;
   width: 350px;
   height: 450px;
   background: white;
