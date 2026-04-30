@@ -1,0 +1,153 @@
+/* ===== Mobile Responsive Fixes ===== */
+
+/* Tablet and Mobile */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .nav-links.active {
+    display: flex;
+  }
+  
+  .mobile-menu-btn {
+    display: flex !important;
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .section-header h2 {
+    font-size: 2rem;
+  }
+  
+  .features-grid,
+  .packages-grid,
+  .steps,
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  /* Chat Widget Mobile Fix */
+  .chat-widget {
+    bottom: 20px !important;
+    right: 20px !important;
+    left: auto !important;
+  }
+  
+  .chat-toggle {
+    width: auto !important;
+  }
+  
+  .chat-window {
+    width: 320px !important;
+    height: 450px !important;
+    bottom: 80px !important;
+    right: 20px !important;
+    left: auto !important;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 15px;
+  }
+  
+  .hero {
+    padding: 120px 0 80px;
+  }
+  
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+  
+  .section {
+    padding: 60px 0;
+  }
+  
+  .btn {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+  }
+  
+  .package-card,
+  .feature-card,
+  .why-card {
+    padding: 20px;
+  }
+  
+  /* Chat Widget Small Mobile */
+  .chat-widget {
+    bottom: 15px !important;
+    right: 15px !important;
+    left: 15px !important;
+  }
+  
+  .chat-toggle {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+  
+  .chat-window {
+    position: fixed !important;
+    width: calc(100vw - 30px) !important;
+    height: 70vh !important;
+    right: 15px !important;
+    left: 15px !important;
+    bottom: 75px !important;
+  }
+  
+  .contact-form {
+    padding: 20px;
+  }
+}
+
+/* ===== Chat Widget High z-index ===== */
+.chat-widget {
+  position: fixed !important;
+  bottom: 30px !important;
+  right: 30px !important;
+  z-index: 99999 !important;
+}
+
+.chat-window {
+  position: absolute !important;
+  bottom: 80px !important;
+  right: 0 !important;
+  width: 350px !important;
+  height: 500px !important;
+  z-index: 100000 !important;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2) !important;
+}
+
+.chat-toggle {
+  z-index: 99999 !important;
+}

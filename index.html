@@ -1,308 +1,334 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <title>NusaERP — Odoo 19 Solusi ERP Terjangkau dari Indonesia</title>
-    <meta name="description" content="NusaERP - Layanan instalasi Odoo 19 Community lengkap dengan akunting, modul OCA, hosting, dan manual pengguna. Siap pakai dalam 1 hari! Harga mulai Rp 1,5 Juta." />
-  </head>
-  <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-      <div class="container nav-content">
-        <div class="logo">
-          <img src="/logo.png" alt="NusaERP Logo" class="logo-img" />
-        </div>
-        <div class="nav-links">
-          <a href="#fitur">Fitur</a>
-          <a href="#paket">Paket</a>
-          <a href="#cara-kerja">Cara Kerja</a>
-          <a href="#kontak" class="btn-nav">Hubungi Kami</a>
-        </div>
-        <button class="mobile-menu-btn" aria-label="Menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NusaERP — Odoo 19 Solusi ERP Terjangkau dari Indonesia</title>
+  <meta name="description" content="NusaERP - Odoo 19 ERP Solution Termurah di Indonesia. Paket lengkap hanya Rp 1,5 Juta.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    /* Emergency form styling */
+    .form-group input,
+    .form-group textarea {
+      width:100% !important;
+      padding: 15px 18px !important;
+      border: 2px solid #475569 !important;
+      border-radius: 12px !important;
+      font-size: 1rem !important;
+      background: #ffffff !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+      display: block !important;
+      margin-bottom: 5px !important;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none !important;
+      border-color: #6366f1 !important;
+      box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.3) !important;
+    }
+    .contact-form .btn-primary {
+      width: 100% !important;
+      padding: 18px 30px !important;
+      font-size: 1.1rem !important;
+      font-weight: 700 !important;
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%) !important;
+      color: white !important;
+      border: 2px solid rgba(255, 255, 255, 0.3) !important;
+      border-radius: 12px !important;
+      cursor: pointer !important;
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4) !important;
+    }
+    /* Divider between form fields */
+    .form-divider {
+      height: 2px !important;
+      background: linear-gradient(90deg, transparent, #cbd5e1, transparent) !important;
+      margin: 15px 0 !important;
+      border: none !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <img src="/logo.png" alt="NusaERP Logo" class="logo-img">
+      </a>
+      
+      <div class="nav-links" id="navLinks">
+        <a href="#fitur">Fitur</a>
+        <a href="#paket">Paket</a>
+        <a href="#cara-kerja">Cara Kerja</a>
+        <a href="#hubungi-kami">Hubungi Kami</a>
       </div>
-    </nav>
+      
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="container hero-content">
-        <div class="hero-text">
-          <div class="badge"><i class="fas fa-rocket"></i> Odoo 19 Siap Pakai 2026</div>
-          <h1>NusaERP — Odoo 19<br/> <span class="gradient-text">Solusi ERP Terjangkau!</span></h1>
-          <p class="hero-subtitle">
-            Berhenti pusing dengan setup ERP yang ribet. Dapatkan Odoo 19 lengkap 
-            dengan hosting VPS, dan panduan lengkap Bahasa Indonesia.
-          </p>
-          <div class="hero-cta">
-            <a href="#paket" class="btn-primary btn-large">
-              <i class="fas fa-bullseye"></i> Pesan Sekarang - Rp 1,5 Juta
-            </a>
-            <a href="#kontak" class="btn-secondary btn-large">
-              <i class="fas fa-calendar-check"></i> Request Demo
-            </a>
-          </div>
-          <div class="hero-trust">
-            <div class="trust-item">
-              <span class="trust-icon"><i class="fas fa-check"></i></span>
-              <span>Setup Kurang dari 24 Jam</span>
-            </div>
-            <div class="trust-item">
-              <span class="trust-icon"><i class="fas fa-check"></i></span>
-              <span>Garansi 30 Hari</span>
-            </div>
-            <div class="trust-item">
-              <span class="trust-icon"><i class="fas fa-check"></i></span>
-              <span>Support Responsif</span>
-            </div>
-            <div class="trust-item">
-              <span class="trust-icon"><i class="fas fa-check"></i></span>
-              <span>Unlimited Users</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="fitur" class="section features">
-      <div class="container">
-        <div class="section-header">
-          <h2>Apa yang Anda Dapatkan?</h2>
-          <p>Semua kebutuhan bisnis dalam satu paket lengkap dari NusaERP</p>
-        </div>
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon"><i class="fas fa-building"></i></div>
-            <h3>Odoo 19 Lengkap</h3>
-            <p>ERP lengkap dengan fitur: Accounting, Invoicing, Inventory, Manufacturing, Purchasing, Sales, POS, dan masih banyak lagi.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon"><i class="fas fa-cloud"></i></div>
-            <h3>Hosting VPS</h3>
-            <p>Kita yang pasang VPS-nya. Biaya hosting ditanggung customer.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon"><i class="fas fa-lock"></i></div>
-            <h3>Domain & SSL</h3>
-            <p>Setup domain (subdomain/domain sendiri) + SSL certificate gratis dari Let's Encrypt. Aman & profesional.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon"><i class="fas fa-book"></i></div>
-            <h3>Manual Pengguna</h3>
-            <p>Panduan lengkap penggunaan Odoo 19 dalam Bahasa Indonesia — mudah dipahami!</p>
-          </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>NusaERP — Odoo 19<br>Solusi ERP Terjangkau!</h1>
+        <p class="hero-subtitle">ERP Lengkap dengan Odoo 19 Open Source. Setup 1 hari, training included, harga mulai <span class="highlight-price">Rp 1,5 Juta</span></p>
+        <div class="hero-cta">
+          <a href="#paket" class="btn btn-primary"><i class="fas fa-box"></i> Pesan Sekarang - Rp 1,5 Juta</a>
+          <a href="#hubungi-kami" class="btn btn-secondary"><i class="fas fa-play"></i> Request Demo</a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Package Section -->
-    <section id="paket" class="section package">
-      <div class="container">
-        <div class="section-header">
-          <h2>Paket Harga</h2>
-          <p>Harga transparan, tanpa biaya tersembunyi</p>
+  <!-- Features Section -->
+  <section class="section" id="fitur">
+    <div class="container">
+      <div class="section-header">
+        <h2>Apa yang Anda Dapatkan?</h2>
+        <p>Solusi lengkap untuk bisnis Anda dengan Odoo 19</p>
+      </div>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-box"></i></div>
+          <h3>Odoo 19 Lengkap</h3>
+          <p>ERP lengkap dengan fitur: Accounting, Invoicing, Inventory, Manufacturing, Purchasing, Sales, POS, dan masih banyak lagi.</p>
         </div>
-        <div class="package-wrapper">
-          <div class="package-card featured">
-            <div class="package-badge">🔥 PROMO LAUNCHING</div>
-            <h3>NusaERP Odoo 19 Ready</h3>
-            <div class="package-price">
-              <span class="currency old-price">Rp</span>
-              <span class="amount old-price">1.750.000</span>
-              <span class="period"></span>
-            </div>
-            <div class="package-price" style="margin-top: -10px;">
-              <span class="currency" style="font-size: 2rem;">Rp</span>
-              <span class="currency">Rp</span>
-              <span class="amount highlight-price">1.500.000</span>
-              <span class="period">/paket</span>
-            </div>
-            <p style="text-align: center; color: #10b981; font-weight: bold; margin: 10px 0;"><i class="fas fa-gem"></i> Hemat Rp 250.000!</p>
-            <ul class="package-features">
-              <li><i class="fas fa-check"></i> Odoo 19 Gratis Selamanya (No Subscription!)</li>
-              <li><i class="fas fa-check"></i> Hosting VPS (Biaya ditanggung customer)</li>
-              <li><i class="fas fa-check"></i> Domain Setup & SSL Certificate</li>
-              <li><i class="fas fa-check"></i> Manual Pengguna (Bahasa Indonesia)</li>
-              <li><i class="fas fa-check"></i> Email Support 30 Hari</li>
-              <li><i class="fas fa-check"></i> Demo Gratis (via laptop)</li>
-              <li><i class="fas fa-check"></i> Unlimited Users (Tanpa biaya tambahan)</li>
-            </ul>
-            <a href="#kontak" class="btn-primary btn-full"><i class="fas fa-rocket"></i> Pesan Sekarang - Rp 1,5 Juta</a>
-          </div>
-          
-          <div class="package-card">
-            <h3>Training & Konsultasi</h3>
-            <div class="package-price">
-              <span class="currency">Rp</span>
-              <span class="amount">500.000</span>
-              <span class="period">/hari</span>
-            </div>
-            <p class="package-note">*Opsional, fleksibel sesuai kebutuhan</p>
-            <ul class="package-features">
-              <li><i class="fas fa-check"></i> Training on-site di perusahaan</li>
-              <li><i class="fas fa-check"></i> Konsultasi setup bisnis process</li>
-              <li><i class="fas fa-check"></i> Panduan khusus industry Anda</li>
-              <li><i class="fas fa-check"></i> Q&A session dengan ahli</li>
-            </ul>
-            <a href="#kontak" class="btn-secondary btn-full">Tanya Jadwal</a>
-          </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-cloud"></i></div>
+          <h3>Hosting VPS</h3>
+          <p>Server VPS dedicated untuk Odoo 19 Anda. Performa tinggi, uptime 99.9%, dan maintenance gratis.</p>
         </div>
-        <div class="package-note-bottom">
-          <p><i class="fas fa-bullseye"></i> <strong>Proses Cepat & Hemat!</strong> Tanpa biaya karyawan tambahan, harga lebih terjangkau, setup lebih cepat.</p>
+        
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-globe"></i></div>
+          <h3>Domain & SSL</h3>
+          <p>Domain .com/.co.id gratis tahun pertama + SSL Certificate untuk keamanan website ERP Anda.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-book"></i></div>
+          <h3>Manual Pengguna</h3>
+          <p>Manual pengguna lengkap dalam Bahasa Indonesia. Mudah dipahami untuk tim Anda.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- How It Works -->
-    <section id="cara-kerja" class="section how-it-works">
-      <div class="container">
-        <div class="section-header">
-          <h2>Cara Kerjanya</h2>
-          <p>Sederhana, cepat, dan tanpa ribet</p>
+  <!-- Pricing Section -->
+  <section class="section section-alt" id="paket">
+    <div class="container">
+      <div class="section-header">
+        <h2>Paket Harga</h2>
+        <p>Pilih paket yang sesuai dengan kebutuhan bisnis Anda</p>
+      </div>
+      
+      <div class="packages-grid">
+        <div class="package-card featured">
+          <div class="package-badge">Terpopuler</div>
+          <h3>NusaERP Odoo 19 Ready</h3>
+          <div class="package-price">
+            <span class="currency">Rp</span>
+            <span class="amount">1.500.000</span>
+            <span class="period">/setup</span>
+          </div>
+          <ul class="package-features">
+            <li><i class="fas fa-check"></i> Odoo 19 Community Edition</li>
+            <li><i class="fas fa-check"></i> Setup & Configuration</li>
+            <li><i class="fas fa-check"></i> MATE Accounting Module</li>
+            <li><i class="fas fa-check"></i> Plus Modul Premium</li>
+            <li><i class="fas fa-check"></i> VPS Hosting (1 tahun)</li>
+            <li><i class="fas fa-check"></i> Domain + SSL</li>
+            <li><i class="fas fa-check"></i> Manual Bahasa Indonesia</li>
+            <li><i class="fas fa-check"></i> AI Manual Integration</li>
+          </ul>
+          <a href="#hubungi-kami" class="btn btn-primary btn-block"><i class="fas fa-box"></i> Pesan Sekarang</a>
         </div>
-        <div class="steps">
-          <div class="step">
-            <div class="step-number">1</div>
-            <div class="step-content">
-              <h3>Demo Gratis</h3>
-              <p>Tim NusaERP datang ke tempat Anda dengan laptop berisi Odoo 19 yang sudah siap. Lihat langsung fiturnya!</p>
+        
+        <div class="package-card">
+          <h3>Training & Konsultasi</h3>
+          <div class="package-price">
+            <span class="currency">Rp</span>
+            <span class="amount">500.000</span>
+            <span class="period">/hari</span>
+          </div>
+          <ul class="package-features">
+            <li><i class="fas fa-check"></i> On-site Training</li>
+            <li><i class="fas fa-check"></i> Modul Accounting</li>
+            <li><i class="fas fa-check"></i> Modul Sales & Purchase</li>
+            <li><i class="fas fa-check"></i> Modul Inventory</li>
+            <li><i class="fas fa-check"></i> Q&A Session</li>
+            <li><i class="fas fa-check"></i> Dokumentasi Lengkap</li>
+          </ul>
+          <a href="#hubungi-kami" class="btn btn-secondary btn-block"><i class="fas fa-calendar"></i> Tanya Jadwal</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section" id="cara-kerja">
+    <div class="container">
+      <div class="section-header">
+        <h2>Cara Kerjanya</h2>
+        <p>Proses setup yang cepat dan mudah</p>
+      </div>
+      
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Demo Gratis</h3>
+          <p>Request demo gratis untuk lihat fitur Odoo 19 langsung di tempat Anda.</p>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Deal & Payment</h3>
+          <p>Deal paket yang sesuai, lakukan pembayaran via transfer bank.</p>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Auto-Deploy</h3>
+          <p>Kami setup Odoo 19 di VPS, install modul, dan konfigurasi awal.</p>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>Go Live!</h3>
+          <p>ERP siap digunakan! Dapat training dan support berkelanjutan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="section section-alt" id="mengapa">
+    <div class="container">
+      <div class="section-header">
+        <h2>Mengapa Memilih NusaERP?</h2>
+        <p>Keunggulan yang kami tawarkan</p>
+      </div>
+      
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon"><i class="fas fa-rocket"></i></div>
+          <h3>Setup 1 Hari</h3>
+          <p>Dari order ke go-live cuma 1 hari. Cepat, efisien, tanpa ribet.</p>
+        </div>
+        
+        <div class="why-card">
+          <div class="why-icon"><i class="fas fa-robot"></i></div>
+          <h3>Proses Otomatis</h3>
+          <p>Deploy otomatis dengan Ansible. Setup Odoo 19 selesai dalam 1 hari kerja.</p>
+        </div>
+        
+        <div class="why-card">
+          <div class="why-icon"><i class="fas fa-book"></i></div>
+          <h3>Manual Bahasa Indonesia</h3>
+          <p>Manual pengguna lengkap dalam Bahasa Indonesia. Support offline tersedia.</p>
+        </div>
+        
+        <div class="why-card">
+          <div class="why-icon"><i class="fas fa-tags"></i></div>
+          <h3>Harga Paling Terjangkau</h3>
+          <p>ERP Open Source gratis + setup profesional mulai Rp 1,5 Juta saja.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section" id="hubungi-kami">
+    <div class="container">
+      <div class="section-header">
+        <h2>Siap Memulai?</h2>
+        <p>Hubungi kami sekarang untuk demo gratis dan penawaran terbaik</p>
+      </div>
+      
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <h3>Kirim Pesan</h3>
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <input type="text" name="name" placeholder="Nama Lengkap" required>
+              <div class="form-divider"></div>
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" placeholder="Email Perusahaan" required>
+              <div class="form-divider"></div>
+            </div>
+            <div class="form-group">
+              <input type="tel" name="phone" placeholder="Nomor WhatsApp">
+              <div class="form-divider"></div>
+            </div>
+            <div class="form-group">
+              <textarea name="message" placeholder="Kebutuhan ERP Anda..." rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-paper-plane"></i> Kirim & Dapatkan Demo Gratis</button>
+          </form>
+        </div>
+        
+        <div class="contact-details">
+          <h3>Informasi Kontak</h3>
+          <div class="contact-item">
+            <span class="contact-icon"><i class="fas fa-phone"></i></span>
+            <div>
+              <strong>WhatsApp</strong>
+              <p>+628****2778 (Dindin - Tim Marketing)</p>
             </div>
           </div>
-          <div class="step-arrow">→</div>
-          <div class="step">
-            <div class="step-number">2</div>
-            <div class="step-content">
-              <h3>Deal & Payment</h3>
-              <p>Sepakat? Bayar Rp 1.500.000 (Promo!). Langsung diproses.</p>
+          <div class="contact-item">
+            <span class="contact-icon"><i class="fas fa-envelope"></i></span>
+            <div>
+              <strong>Email</strong>
+              <p>info@nusaerp.com</p>
             </div>
           </div>
-          <div class="step-arrow">→</div>
-          <div class="step">
-            <div class="step-number">3</div>
-            <div class="step-content">
-              <h3>Auto-Deploy</h3>
-              <p>Setup VPS, install Odoo 19, konfigurasi modul, domain, SSL — semua otomatis!</p>
-            </div>
-          </div>
-          <div class="step-arrow">→</div>
-          <div class="step">
-            <div class="step-number">4</div>
-            <div class="step-content">
-              <h3>Go Live!</h3>
-              <p>Sistem siap pakai dalam 24 jam. Dapat manual pengguna & support email 30 hari.</p>
+          <div class="contact-item">
+            <span class="contact-icon"><i class="fas fa-clock"></i></span>
+            <div>
+              <strong>Jam Operasional</strong>
+              <p>Senin - Jumat: 09:00 - 17:00 WIB</p>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Why Us -->
-    <section class="section why-us">
-      <div class="container">
-        <div class="section-header">
-          <h2>Mengapa Memilih NusaERP?</h2>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="/logo.png" alt="NusaERP" class="footer-logo">
+          <p>Solusi ERP terjangkau dengan Odoo 19. Setup cepat, support lengkap.</p>
         </div>
-        <div class="why-grid">
-          <div class="why-card">
-            <div class="why-icon"><i class="fas fa-robot"></i></div>
-            <h3>Proses Otomatis</h3>
-            <p>Proses otomatis. Lebih cepat, lebih akurat.</p>
-          </div>
-          <div class="why-card">
-            <div class="why-icon"><i class="fas fa-bolt"></i></div>
-            <h3>Setup 1 Hari</h3>
-            <p>Tidak perlu tunggu mingguan. Dalam 24 jam sistem sudah bisa digunakan.</p>
-          </div>
-          <div class="why-card">
-            <div class="why-icon"><i class="fas fa-language"></i></div>
-            <h3>Manual Bahasa Indonesia</h3>
-            <p>Dokumentasi lengkap dalam Bahasa Indonesia — mudah dipahami tim Anda.</p>
-          </div>
-          <div class="why-card">
-            <div class="why-icon"><i class="fas fa-gem"></i></div>
-            <h3>Harga Paling Terjangkau</h3>
-            <p>Rp 1,5 Juta untuk semua fitur. Jauh lebih murah dari kompetitor!</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="kontak" class="section contact">
-      <div class="container">
-        <div class="contact-wrapper">
-          <div class="contact-info">
-            <h2>Siap Memulai?</h2>
-            <p>Hubungi NusaERP sekarang untuk demo gratis dan konsultasi kebutuhan ERP Anda.</p>
-            <div class="contact-items">
-              <div class="contact-item">
-                <span class="contact-icon">📱</span>
-                <div>
-                  <strong>WhatsApp - Dindin</strong>
-                  <p>+6285213442778 (Tim Marketing)</p>
-                </div>
-              </div>
-              <div class="contact-item">
-                <span class="contact-icon">📍</span>
-                <div>
-                  <strong>Lokasi Demo</strong>
-                  <p>Jabodetabek & Bandung (On-site)</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="contact-form">
-            <h3>Kirim Pesan</h3>
-            <form id="contactForm">
-              <div class="form-group">
-                <input type="text" placeholder="Nama Lengkap" required />
-              </div>
-              <div class="form-group">
-                <input type="email" placeholder="Email Perusahaan" required />
-              </div>
-              <div class="form-group">
-                <input type="tel" placeholder="Nomor WhatsApp" />
-              </div>
-              <div class="form-group">
-                <textarea placeholder="Kebutuhan ERP Anda..." rows="4"></textarea>
-              </div>
-              <button type="submit" class="btn-primary btn-full">
-                <i class="fas fa-paper-plane"></i> Kirim & Dapatkan Demo Gratis
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="container footer-content">
-        <div class="footer-left">
-          <div class="logo">
-            <img src="/logo.png" alt="NusaERP Logo" class="logo-img" />
-          </div>
-          <p>Layanan instalasi Odoo 19 siap pakai di Indonesia.</p>
-        </div>
+        
         <div class="footer-links">
           <h4>Quick Links</h4>
           <a href="#fitur">Fitur</a>
           <a href="#paket">Paket Harga</a>
           <a href="#cara-kerja">Cara Kerja</a>
         </div>
+        
         <div class="footer-links">
           <h4>Layanan</h4>
           <a href="#">Instalasi Odoo 19</a>
           <a href="#">Training On-site</a>
           <a href="#">Konsultasi ERP</a>
         </div>
+        
         <div class="footer-links">
           <h4>Support</h4>
           <a href="#">Email Support</a>
@@ -310,34 +336,45 @@
           <a href="#">FAQ</a>
         </div>
       </div>
-      <div class="container footer-bottom">
+      
+      <div class="footer-bottom">
         <p>&copy; 2026 NusaERP — Odoo 19 Solusi ERP Terjangkau dari Indonesia.</p>
       </div>
-    </footer>
+    </div>
+  </footer>
 
-    <!-- Chat Widget - Must be at root level, not inside any container -->
-    <div class="chat-widget" id="chatWidget">
-      <button class="chat-toggle" id="chatToggle">
-        <span class="chat-icon">💬</span>
-        <span class="chat-label">Chat CS</span>
-      </button>
-      <div class="chat-window" id="chatWindow">
-        <div class="chat-header">
-          <h4>NusaERP Assistant</h4>
-          <button class="chat-close" id="chatClose">×</button>
-        </div>
-        <div class="chat-messages" id="chatMessages">
-          <div class="chat-message bot">
-            <p>Halo! Saya Customer Service NusaERP. Ada yang bisa saya bantu? 😊</p>
+  <!-- Chat Widget -->
+  <div class="chat-widget" id="chatWidget">
+    <button class="chat-toggle" id="chatToggle" aria-label="Chat dengan CS">
+      <span class="chat-toggle-icon"><i class="fas fa-comment"></i></span>
+      <span class="chat-toggle-text">Chat CS</span>
+    </button>
+    
+    <div class="chat-window" id="chatWindow">
+      <div class="chat-header">
+        <div class="chat-header-info">
+          <span class="chat-avatar"><i class="fas fa-user-tie"></i></span>
+          <div>
+            <h4>NusaERP CS</h4>
+            <span class="chat-status">Online</span>
           </div>
         </div>
-        <form class="chat-input-form" id="chatForm">
-          <input type="text" id="chatInput" placeholder="Tulis pesan..." autocomplete="off">
-          <button type="submit">Kirim</button>
-        </form>
+        <button class="chat-close" id="chatClose" aria-label="Tutup chat"><i class="fas fa-times"></i></button>
       </div>
+      
+      <div class="chat-messages" id="chatMessages">
+        <div class="chat-message bot">
+          <p>Halo! Saya Customer Service NusaERP. Ada yang bisa saya bantu? 😊</p>
+        </div>
+      </div>
+      
+      <form class="chat-input-form" id="chatForm">
+        <input type="text" id="chatInput" placeholder="Tulis pesan..." autocomplete="off" aria-label="Ketik pesan">
+        <button type="submit">Kirim</button>
+      </form>
     </div>
+  </div>
 
-    <script src="/main.js"></script>
-  </body>
+  <script type="module" src="/src/main.js"></script>
+</body>
 </html>

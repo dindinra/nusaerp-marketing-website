@@ -1,4 +1,7 @@
-// Mobile menu toggle
+// Import CSS
+import './style.css'
+
+// ===== Mobile Menu Toggle =====
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn')
 const navLinks = document.querySelector('.nav-links')
 
@@ -7,9 +10,17 @@ if (mobileMenuBtn) {
     navLinks.classList.toggle('active')
     mobileMenuBtn.classList.toggle('active')
   })
+  
+  // Close mobile menu when clicking a link
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active')
+      mobileMenuBtn.classList.remove('active')
+    })
+  })
 }
 
-// Smooth scroll for anchor links
+// ===== Smooth Scroll for Anchor Links =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault()
@@ -21,14 +32,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         top: targetPosition,
         behavior: 'smooth'
       })
-      // Close mobile menu if open
-      navLinks.classList.remove('active')
-      mobileMenuBtn.classList.remove('active')
     }
   })
 })
 
-// Form submission to API
+// ===== Contact Form Submission =====
 const contactForm = document.getElementById('contactForm')
 if (contactForm) {
   contactForm.addEventListener('submit', async function(e) {
@@ -86,7 +94,7 @@ if (contactForm) {
   })
 }
 
-// Navbar background on scroll
+// ===== Navbar Background on Scroll =====
 window.addEventListener('scroll', () => {
   const navbar = document.querySelector('.navbar')
   if (window.scrollY > 50) {
@@ -96,7 +104,7 @@ window.addEventListener('scroll', () => {
   }
 })
 
-// Intersection Observer for fade-in animations
+// ===== Intersection Observer for Scroll Animations =====
 const observerOptions = {
   threshold: 0.1,
   rootMargin: '0px 0px -50px 0px'
@@ -108,44 +116,44 @@ const observer = new IntersectionObserver((entries) => {
       // Add staggered delay for grid items
       if (entry.target.parentElement.classList.contains('features-grid') ||
           entry.target.parentElement.classList.contains('why-grid') ||
-          entry.target.parentElement.classList.contains('steps')) {
-        const items = entry.target.parentElement.children;
-        const itemIndex = Array.from(items).indexOf(entry.target);
-        entry.target.style.transitionDelay = `${itemIndex * 0.1}s`;
+          entry.target.parentElement.classList.contains('steps') ||
+          entry.target.parentElement.classList.contains('packages-grid')) {
+        const items = entry.target.parentElement.children
+        const itemIndex = Array.from(items).indexOf(entry.target)
+        entry.target.style.transitionDelay = `${itemIndex * 0.1}s`
       }
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
+      entry.target.classList.add('visible')
+      observer.unobserve(entry.target)
     }
   })
 }, observerOptions)
 
 // Observe elements with animation classes
 document.querySelectorAll('.feature-card, .package-card, .step, .why-card, .section-header, .contact-wrapper').forEach(el => {
-  el.classList.add('fade-in-up');
-  observer.observe(el);
+  el.classList.add('fade-in-up')
+  observer.observe(el)
 })
 
 // Add fade-in-left to contact-info
-const contactInfo = document.querySelector('.contact-info');
+const contactInfo = document.querySelector('.contact-info')
 if (contactInfo) {
-  contactInfo.classList.add('fade-in-left');
-  observer.observe(contactInfo);
+  contactInfo.classList.add('fade-in-left')
+  observer.observe(contactInfo)
 }
 
-// Add fade-in-right to contact-form
-const contactFormSection = document.querySelector('.contact-form');
-if (contactFormSection) {
-  contactFormSection.classList.add('fade-in-right');
-  observer.observe(contactFormSection);
+// Add fade-in-right to contact-details
+const contactDetails = document.querySelector('.contact-details')
+if (contactDetails) {
+  contactDetails.classList.add('fade-in-right')
+  observer.observe(contactDetails)
 }
 
-// Update stats from API (optional real-time)
+// ===== Update Stats from API (Optional) =====
 async function updateStats() {
   try {
     const response = await fetch('http://localhost:3000/api/stats')
     if (response.ok) {
       const stats = await response.json()
-      // Update any stat displays if needed
       console.log('Stats:', stats)
     }
   } catch (error) {
@@ -164,16 +172,12 @@ const chatForm = document.getElementById('chatForm')
 const chatInput = document.getElementById('chatInput')
 const chatMessages = document.getElementById('chatMessages')
 
-// Hide chat window initially
-chatWindow.style.display = 'none'
-
 // Toggle chat window
 if (chatToggle) {
   chatToggle.addEventListener('click', () => {
-    if (chatWindow.style.display === 'flex') {
-      chatWindow.style.display = 'none'
-    } else {
-      chatWindow.style.display = 'flex'
+    chatWindow.classList.toggle('active')
+    if (chatWindow.classList.contains('active')) {
+      chatInput.focus()
     }
   })
 }
@@ -181,26 +185,26 @@ if (chatToggle) {
 // Close chat window
 if (chatClose) {
   chatClose.addEventListener('click', () => {
-    chatWindow.style.display = 'none'
+    chatWindow.classList.remove('active')
   })
 }
 
-// Handle chat form submission
+// Handle form submission
 if (chatForm) {
   chatForm.addEventListener('submit', async (e) => {
     e.preventDefault()
     const message = chatInput.value.trim()
     if (!message) return
     
-    // Add user message to chat
+    // Add user message
     addMessage(message, 'user')
     chatInput.value = ''
     
-    // Disable input while waiting
+    // Disable input
     chatInput.disabled = true
     const submitBtn = chatForm.querySelector('button[type="submit"]')
-    const originalBtnText = submitBtn.innerHTML
-    submitBtn.innerHTML = '⏳ Menunggu CS...'
+    const originalText = submitBtn.textContent
+    submitBtn.textContent = 'Mengirim...'
     submitBtn.disabled = true
     
     // Show typing indicator
@@ -208,82 +212,73 @@ if (chatForm) {
     
     try {
       const controller = new AbortController()
-      const timeoutId = setTimeout(() => controller.abort(), 60000) // 60s timeout
+      const timeout = setTimeout(() => controller.abort(), 30000)
       
       const response = await fetch('http://localhost:3000/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message, customerName: 'Website Visitor' }),
+        body: JSON.stringify({ 
+          message, 
+          customerName: 'Website Visitor',
+          timestamp: new Date().toISOString()
+        }),
         signal: controller.signal
       })
       
-      clearTimeout(timeoutId)
-      
-      // Remove typing indicator
-      if (typingDiv) typingDiv.remove()
+      clearTimeout(timeout)
+      typingDiv.remove()
       
       if (response.ok) {
         const data = await response.json()
-        // Response is in data.response.message
-        if (data.response && data.response.message) {
-          addMessage(data.response.message, 'bot')
-        } else if (data.response) {
-          addMessage(data.response, 'bot')
-        } else {
-          addMessage('Maaf, terjadi kesalahan dalam memproses pesan.', 'bot')
-        }
+        const botMessage = data.response?.message || data.response || 'Maaf, ada kesalahan.'
+        addMessage(botMessage, 'bot')
       } else {
         throw new Error('Server error')
       }
     } catch (error) {
       console.error('Chat error:', error)
-      // Remove typing indicator
-      if (typingDiv) typingDiv.remove()
+      typingDiv.remove()
       
       // Offline auto-response
-      const offlineResponses = [
-        'Terima kasih atas pesannya! Saat ini CS sedang offline. Silakan hubungi kami via WhatsApp di +628****2778 untuk respon cepat.',
-        'Halo! Mohon maaf, saat ini CS tidak aktif. Untuk demo gratis, silakan isi form kontak atau hubungi WhatsApp kami.',
-        'Pesan Anda telah kami terima. Tim NusaERP akan segera menghubungi Anda. Atau hubungi langsung: +628****2778.'
+      const responses = [
+        'Terima kasih! Saat ini CS sedang offline. Hubungi WhatsApp: +628****2778 untuk respon cepat.',
+        'Halo! Mohon maaf CS tidak aktif. Silakan isi form kontak atau WA ke +628****2778.',
+        'Pesan terkirim! Tim NusaERP akan menghubungi Anda segera. Atau hubungi: +628****2778.'
       ]
-      const randomResponse = offlineResponses[Math.floor(Math.random() * offlineResponses.length)]
+      const randomResponse = responses[Math.floor(Math.random() * responses.length)]
       
-      setTimeout(() => {
-        addMessage(randomResponse, 'bot')
-      }, 1000)
+      setTimeout(() => addMessage(randomResponse, 'bot'), 1000)
     } finally {
       chatInput.disabled = false
-      submitBtn.innerHTML = originalBtnText
+      submitBtn.textContent = originalText
       submitBtn.disabled = false
       chatInput.focus()
     }
   })
 }
 
-// Add typing indicator (three animated dots)
+// Add typing indicator
 function addTypingIndicator() {
-  const typingDiv = document.createElement('div')
-  typingDiv.className = 'chat-message bot typing-indicator-container'
-  typingDiv.innerHTML = `
+  const div = document.createElement('div')
+  div.className = 'chat-message bot'
+  div.innerHTML = `
     <div class="typing-indicator">
       <span></span>
       <span></span>
       <span></span>
     </div>
   `
-  chatMessages.appendChild(typingDiv)
+  chatMessages.appendChild(div)
   chatMessages.scrollTop = chatMessages.scrollHeight
-  return typingDiv
+  return div
 }
 
-// Add message to chat window
+// Add message to chat
 function addMessage(text, sender) {
-  const msgDiv = document.createElement('div')
-  msgDiv.className = `chat-message ${sender}`
-  // Convert newlines to <br> and wrap in <p>
-  const formattedText = text.replace(/\n/g, '<br>')
-  msgDiv.innerHTML = `<p>${formattedText}</p>`
-  chatMessages.appendChild(msgDiv)
+  const div = document.createElement('div')
+  div.className = `chat-message ${sender}`
+  div.innerHTML = `<p>${text.replace(/\n/g, '<br>')}</p>`
+  chatMessages.appendChild(div)
   chatMessages.scrollTop = chatMessages.scrollHeight
 }
 
